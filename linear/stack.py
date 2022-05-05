@@ -11,10 +11,16 @@ class Stack:
         return self.stack.insert(0, item)
 
     def pop(self):
-        return self.stack.pop(0)
+        result = None
+        if not self.is_empty():
+            result = self.stack.pop(0)
+        return result
 
     def peek(self):
-        return self.stack[0]
+        result = None
+        if not self.is_empty():
+            result = self.stack[0]
+        return result
 
     def size(self):
         return len(self.stack)
@@ -31,25 +37,35 @@ class TestStack(unittest.TestCase):
     def test_push(self):
         s = Stack()
         s.push("test")
-        self.assertAlmostEqual(1, len(s.stack))
+        s.push("test2")
+        self.assertAlmostEqual(2, len(s.stack))
+        self.assertAlmostEqual("test2", s.stack[0])
 
     def test_pop(self):
-        s = Stack()
-        s.push("test")
-        self.assertAlmostEqual("test", s.pop())
-        self.assertAlmostEqual(0, len(s.stack))
+        s1 = Stack()
+        s2 = Stack()
+        s1.push("test")
+        s1.push("test2")
+        self.assertAlmostEqual("test2", s1.pop())
+        self.assertAlmostEqual(1, len(s1.stack))
+        self.assertAlmostEqual(None, s2.pop())
 
     def test_peek(self):
-        s = Stack()
-        s.push("test")
-        self.assertAlmostEqual("test", s.peek())
-        self.assertAlmostEqual(1, len(s.stack))
+        s1 = Stack()
+        s2 = Stack()
+        s1.push("test")
+        s1.push("test2")
+        self.assertAlmostEqual("test2", s1.peek())
+        self.assertAlmostEqual(2, len(s1.stack))
+        self.assertAlmostEqual(None, s2.peek())
 
     def test_size(self):
-        s = Stack()
-        s.push("test")
-        s.push("test2")
-        self.assertAlmostEqual(2, s.size())
+        s1 = Stack()
+        s2 = Stack()
+        s1.push("test")
+        s1.push("test2")
+        self.assertAlmostEqual(2, s1.size())
+        self.assertAlmostEqual(0, s2.size())
 
 if __name__ == "__main__":
     unittest.main()
