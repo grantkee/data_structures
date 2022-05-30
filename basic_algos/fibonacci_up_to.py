@@ -1,15 +1,14 @@
 import sys
 
 def fibonacci_up_to(n):
-    a = 0
-    b = 1
-    print(b)
+    a = 1
+    b = 2
     while a <= n:
         tmp = a
         a = a + b
         b = tmp
-        print(b)
+    return b
 
 if __name__ == "__main__":
     num = int(sys.argv[1])
-    fibonacci_up_to(num)
+    print(fibonacci_up_to(num))
