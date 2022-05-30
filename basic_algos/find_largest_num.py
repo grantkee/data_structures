@@ -10,5 +10,4 @@ def find_largest_number(args):
     return largest
 
 if __name__ == "__main__":
-    largest = find_largest_number(sys.argv[1:])
-    print(f"{largest}")
+    print(find_largest_number(sys.argv[1:]))
