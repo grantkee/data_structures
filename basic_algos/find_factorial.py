@@ -7,5 +7,4 @@ def find_factorial(n):
     return factorial
 
 if __name__ == "__main__":
-    factorial = find_factorial(int(sys.argv[1]))
-    print(f"{factorial}")
+    print(find_factorial(int(sys.argv[1])))
